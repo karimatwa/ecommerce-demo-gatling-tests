@@ -10,7 +10,7 @@
     "moment": "^2.30.1"
   },
   "devDependencies": {
-    "@gatling.io/cli": "3.12.0",
+    "@gatling.io/cli": "3.13.2",
     "prettier": "3.3.3",
     "rimraf": "6.0.1"
   },
