@@ -6,8 +6,7 @@
   "main": "target/bundle",
   "dependencies": {
     "@gatling.io/core": "3.13.401",
-    "@gatling.io/http": "3.13.401",
-    "moment": "^2.30.1"
+    "@gatling.io/http": "3.13.401"
   },
   "devDependencies": {
     "@gatling.io/cli": "3.13.401",
@@ -22,6 +21,8 @@
     "build": "tsc --noEmit && gatling build --typescript",
     "recorder": "gatling recorder --typescript",
     "simA": "gatling run --typescript --simulation=appSimulationA",
-    "simB": "gatling run --typescript --simulation=appSimulationB"
+    "simB": "gatling run --typescript --simulation=appSimulationB",
+    "package": "gatling enterprise-package",
+    "deploy": "gatling enterprise-deploy"
   }
 }

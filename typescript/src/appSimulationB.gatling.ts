@@ -99,20 +99,20 @@ export default core.simulation((setUp) => {
           core
             .incrementUsersPerSec(utils.users)
             .times(4)
-            .eachLevelLasting(utils.duration)
+            .eachLevelLasting({amount: utils.duration, unit: "minutes"})
             .separatedByRampsLasting(4)
             .startingFrom(10)
         );
       case "soak":
-        return scn.injectOpen(core.constantUsersPerSec(utils.users).during(utils.duration));
+        return scn.injectOpen(core.constantUsersPerSec(utils.users).during({amount: utils.duration, unit: "minutes"}));
       case "stress":
-        return scn.injectOpen(core.stressPeakUsers(utils.users).during(utils.duration));
+        return scn.injectOpen(core.stressPeakUsers(utils.users).during({amount: utils.duration, unit: "minutes"}));
       case "breakpoint":
-        return scn.injectOpen(core.rampUsersPerSec(0).to(utils.users).during(utils.duration));
+        return scn.injectOpen(core.rampUsersPerSec(0).to(utils.users).during({amount: utils.duration, unit: "minutes"}));
       case "ramp-hold":
         return scn.injectOpen(
-          core.rampUsersPerSec(0).to(utils.users).during(utils.ramp_duration),
-          core.constantUsersPerSec(utils.users).during(utils.duration)
+          core.rampUsersPerSec(0).to(utils.users).during({amount: utils.ramp_duration, unit: "minutes"}),
+          core.constantUsersPerSec(utils.users).during({amount: utils.duration, unit: "minutes"})
         );
       case "smoke":
         return scn.injectOpen(core.atOnceUsers(1));
